@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mean-reverting-strategy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mean-reverting-strategy
+  template:
+    metadata:
+      labels:
+        app: mean-reverting-strategy
+    spec:
+      containers:
+      - name: strategy
+        image: your-dockerhub-user/mean-reverting-strategy:latest
+        ports:
+        - containerPort: 80
